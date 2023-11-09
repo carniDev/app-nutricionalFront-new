@@ -1,1 +1,47 @@
-<p>dashboard works!</p>
+<div class="d-flex">
+  <div class="sidebar bg-dark col-md-2 px-0">
+      <ul class="list-group">
+          <li class="list-group-item bg-dark border-0"><a href="#" class="text-white">Inicio</a></li>
+          <li class="list-group-item bg-dark border-0"><a href="#" class="text-white">Añadir Comida</a></li>
+          <li class="list-group-item bg-dark border-0"><a href="#" class="text-white">Configuración</a></li>
+          <li class="list-group-item bg-dark border-0"><a href="#" class="text-white">Logout</a></li>
+      </ul>
+  </div>
+  <div class="main-content col-md-10 px-4">
+      <header>
+          <h1 class="my-4">Nombre de tu App</h1>
+      </header>
+      <main>
+          <section class="charts bg-white rounded p-4 mb-4">
+              <div class="container-fluid">
+                  <!--<app-charts [proteinData]="informacionDiaria.proteinaDiaria" [carbData]="informacionDiaria.hidratosCarbonoDiarios" [fatData]="informacionDiaria.grasaDiaria"></app-charts> !-->
+              </div>
+          </section>
+          <section class="meal-list bg-white rounded p-4">
+              <table class="table table-bordered tablaComidas">
+                  <thead>
+                      <tr>
+                          <th>Tipo comida</th>
+                          <th>Kcal</th>
+                          <th>Hidratos</th>
+                          <th>Proteinas</th>
+                          <th>Grasas</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr >
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                      </tr>
+                  </tbody>
+              </table>
+              <div class="mt-4">
+                  <button class="btn btn-primary">Añadir comida</button>
+              </div>
+          </section>
+      </main>
+  </div>
+</div>
