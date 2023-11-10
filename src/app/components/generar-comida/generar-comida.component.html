@@ -1,1 +1,53 @@
-<p>generar-comida works!</p>
+<div class="container mt-5">
+    <h2 class="text-center">Comida para registrar</h2>
+    <form>
+        <div class="form-group">
+            <label for="tipoComida">Tipo de Comida</label>
+            <select class="form-control" id="tipoComida">
+                <option [defaultSelected]="">Seleccione una comida</option>
+                <option>Desayuno</option>
+                <option>Almuerzo</option>
+                <option>Comida</option>
+                <option>Merienda</option>
+                <option>Cena</option>
+            </select>
+        </div>
+
+        <div class="table">
+            <table class="table table-bordered table-hover align-middle">
+                <thead>
+                    <tr>
+                        <th>cantidad</th>
+                        <th>codigo alimento</th>
+                        <th>nombre alimento</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                       <td></td>
+                       <td></td>
+                       <td></td>
+                    </tr>
+    
+    
+                </tbody>
+            </table>
+
+        </div>
+
+
+        <div class="row justify-content-end">
+            <div class="col-md-auto">
+                <button (click)="buscarAlimento()" class="btn btn-light">Buscar</button>
+            </div>
+            <div class="col-md-auto">
+                <button type="submit" class="btn btn-primary">Añadir</button>
+            </div>
+            <div class="col-md-auto">
+                <button type="button" class="btn btn-danger" (click)="cancelar()">Cancelar</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
