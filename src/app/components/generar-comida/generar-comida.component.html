@@ -25,7 +25,7 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let alimento of comida.listadoAlimentos">
-                        <td>{{ alimento.cantidadAlimento }}</td>
+                        <td><input type="text" [(ngModel)]="alimento.cantidadAlimento" name="alimento.cantidadAlimento"></td>
                         <td>{{ alimento.informacion.codigoAlimento }}</td>
                         <td>{{ alimento.informacion.nombre }}</td>
                     </tr>
@@ -38,7 +38,7 @@
                 <button type="button" (click)="buscarAlimento()" class="btn btn-light">Buscar</button>
             </div>
             <div *ngIf="comida && comida.listadoAlimentos && comida.listadoAlimentos.length > 0" class="col-md-auto">
-                <button type="submit" class="btn btn-primary">Añadir</button>
+                <button type="submit" class="btn btn-primary" (click)="addComida()">Añadir</button>
             </div>
             <div class="col-md-auto">
                 <button type="button" class="btn btn-danger" (click)="cancelar()">Cancelar</button>

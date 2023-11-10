@@ -22,11 +22,16 @@ export class GenerarComidaComponent {
   }
   buscarAlimento(){
     this.comidaService.guardarComida(this.comida)
+    console.log(this.comidaService.obtenerComida())
     this.router.navigate(['buscar-ingrediente']);
   }
 
   actualizarTipoComida(): void {
     this.comidaService.setTipoComida(this.comida.tipoComida);
+  }
+
+  addComida(){
+    console.log(this.comida);
   }
 
   cancelar(){

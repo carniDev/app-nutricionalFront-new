@@ -1,7 +1,7 @@
 import { InformacionAlimento } from "./informacion-alimento";
 
 export interface Alimento {
-    idAlimento: number;
+    idAlimento: any;
     informacion: InformacionAlimento;
     cantidadAlimento: number;
 }

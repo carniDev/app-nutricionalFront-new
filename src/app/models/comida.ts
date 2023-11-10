@@ -1,7 +1,7 @@
 import { Alimento } from "./alimento";
 
 export interface Comida {
-    idComida: number;
+    idComida: any;
     tipoComida: string;
     fechaComida: string;
     listadoAlimentos: Alimento[];

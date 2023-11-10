@@ -3,11 +3,11 @@
         <h1>Buscador de alimentos</h1>
     </div>
     <div class="mb-4">
-        <input class="form-control"  type="text" name="Nombre" id="nombre" placeholder="introduce el nombre" />
+        <input class="form-control" [(ngModel)]="nombre" type="text" name="nombre" id="nombre" placeholder="introduce el nombre" />
         <button class="btn btn-primary mt-2" (click)="buscar()">Buscar</button>
         <button class="btn btn-primary mt-2" (click)="reset()">Reset</button>
     </div>
-    <div class="table" >
+    <div class="table">
         <table class="table table-bordered table-hover align-middle">
             <thead>
                 <tr>
@@ -19,14 +19,14 @@
                     <th>Grasas</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr (click)="seleccionarInfo()">
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+            <tbody *ngIf="alimentoInformacion | async  as informacion">
+                <tr *ngFor="let alimento of informacion "(click)="seleccionarInfo(alimento)">
+                    <td>{{alimento.codigoAlimento}}</td>
+                    <td>{{alimento.nombre}}</td>
+                    <td>{{alimento.kcal}}</td>
+                    <td>{{alimento.hidratosCarbono}}</td>
+                    <td>{{alimento.proteinas}}</td>
+                    <td>{{alimento.grasas}}</td>
                 </tr>
 
 
