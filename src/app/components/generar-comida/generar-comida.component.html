@@ -3,17 +3,18 @@
     <form>
         <div class="form-group">
             <label for="tipoComida">Tipo de Comida</label>
-            <select class="form-control" id="tipoComida">
-                <option [defaultSelected]="">Seleccione una comida</option>
-                <option>Desayuno</option>
-                <option>Almuerzo</option>
-                <option>Comida</option>
-                <option>Merienda</option>
-                <option>Cena</option>
+            <select class="form-control" id="tipoComida" [(ngModel)]="comida.tipoComida" name="comida.tipoComida" (change)="actualizarTipoComida()">
+                <option value="">Seleccione una comida</option>
+                <option value="DESAYUNO">Desayuno</option>
+                <option value="ALMUERZO">Almuerzo</option>
+                <option value="COMIDA">Comida</option>
+                <option value="MERIENDA">Merienda</option>
+                <option value="CENA">Cena</option>
             </select>
         </div>
 
-        <div class="table">
+      
+        <div class="table-responsive" *ngIf="comida && comida.listadoAlimentos && comida.listadoAlimentos.length > 0">
             <table class="table table-bordered table-hover align-middle">
                 <thead>
                     <tr>
@@ -23,24 +24,20 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                       <td></td>
-                       <td></td>
-                       <td></td>
+                    <tr *ngFor="let alimento of comida.listadoAlimentos">
+                        <td>{{ alimento.cantidadAlimento }}</td>
+                        <td>{{ alimento.informacion.codigoAlimento }}</td>
+                        <td>{{ alimento.informacion.nombre }}</td>
                     </tr>
-    
-    
                 </tbody>
             </table>
-
         </div>
-
 
         <div class="row justify-content-end">
             <div class="col-md-auto">
-                <button (click)="buscarAlimento()" class="btn btn-light">Buscar</button>
+                <button type="button" (click)="buscarAlimento()" class="btn btn-light">Buscar</button>
             </div>
-            <div class="col-md-auto">
+            <div *ngIf="comida && comida.listadoAlimentos && comida.listadoAlimentos.length > 0" class="col-md-auto">
                 <button type="submit" class="btn btn-primary">Añadir</button>
             </div>
             <div class="col-md-auto">
@@ -49,5 +46,3 @@
         </div>
     </form>
 </div>
-
-

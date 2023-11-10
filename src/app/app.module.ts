@@ -11,6 +11,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegistrarUsuarioComponent } from './components/registrar-usuario/registrar-usuario.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ChartsComponent } from './components/charts/charts.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { ChartsComponent } from './components/charts/charts.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
 
   ],
   providers: [],

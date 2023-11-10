@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Route, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { InformacionNutricional } from 'src/app/models/informacion-nutricional';
-import { DashboardService } from 'src/app/services/dashBoard.services';
+import { DashboardService } from 'src/app/services/dashBoard.service';
 
 @Component({
   selector: 'app-dashboard',
