@@ -22,6 +22,7 @@ export class DashboardComponent {
 
 
   addComida() {
+    console.log(this.informacionNutricional)
     this.route.navigate(['generar-comida']);
   }
 

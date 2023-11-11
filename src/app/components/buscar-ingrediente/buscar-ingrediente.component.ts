@@ -21,7 +21,7 @@ export class BuscarIngredienteComponent {
 
 
   constructor(private busquedaService: BusquedaService, private comidaService: ComidaService, private router: Router,private editarService:EditarService) {
-
+    
     this.alimento=this.editarService.getAlimentoAEditar();
   }
 

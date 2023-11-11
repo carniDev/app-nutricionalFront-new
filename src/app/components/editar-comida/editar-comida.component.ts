@@ -16,13 +16,23 @@ export class EditarComidaComponent {
 
   constructor(private editarService: EditarService, private router: Router) {
     this.comida = this.editarService.getComida();
+    this.comida.email='juan@email.com';
     console.log(this.comida);
   }
 
-
+  editarComida(){
+    this.editarService.editarComida().subscribe((resp) =>{
+      
+        this.router.navigate(['dashboard']);
+      
+    }, (error)=>{
+      console.log(error);
+    })
+  }
   editarAlimento(alimento: Alimento) {
     this.editarService.addAlimentoAEditar(alimento);
     this.router.navigate(['buscar-ingrediente']);
+    
   }
 
 

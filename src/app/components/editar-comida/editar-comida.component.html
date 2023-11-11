@@ -1,6 +1,6 @@
 <div class="container mt-5">
     <h2 class="text-center">Comida para editar</h2>
-    <form >
+    <form (ngSubmit)="editarComida()">
         <div class="form-group">
             <label for="tipoComida">Tipo de Comida</label>
             <select class="form-control" [(ngModel)]="comida.tipoComida" id="tipoComida"  name="comida.tipoComida" >
@@ -27,7 +27,7 @@
                     <tr *ngFor="let alimento of comida.listadoAlimentos" (click)="editarAlimento(alimento)">
                         <td><input type="text" [(ngModel)]="alimento.cantidadAlimento" name="alimento.cantidadAlimento"></td>
                         <ng-container *ngIf="alimento.informacion!=null">
-                        <td>{{alimento.informacion.codigoAlimento}}</td>
+                        <td >{{alimento.informacion.codigoAlimento}}</td>
                         <td>{{alimento.informacion.nombre}}</td>
                     </ng-container>
                     </tr>
