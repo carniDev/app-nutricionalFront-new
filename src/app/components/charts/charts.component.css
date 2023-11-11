@@ -1,0 +1,11 @@
+.chart-container-wrapper {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+  }
+.chart-container{
+    display: inline-block;
+    
+}  
