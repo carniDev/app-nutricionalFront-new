@@ -13,7 +13,7 @@ export class DashboardComponent {
   informacionNutricional!: Observable<InformacionNutricional>;
 
   constructor(private route: Router, private dashboardService: DashboardService) {
-    const credentials = { fechaBuscar: '10/11/2023', email: 'juan@email.com' };
+    const credentials = { fechaBuscar: '11/11/2023', email: 'juan@email.com' };
     this.informacionNutricional = this.dashboardService.buscar(credentials);
   }
 

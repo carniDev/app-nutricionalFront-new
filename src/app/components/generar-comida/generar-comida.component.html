@@ -1,6 +1,6 @@
 <div class="container mt-5">
     <h2 class="text-center">Comida para registrar</h2>
-    <form>
+    <form (ngSubmit)="addComida()">
         <div class="form-group">
             <label for="tipoComida">Tipo de Comida</label>
             <select class="form-control" id="tipoComida" [(ngModel)]="comida.tipoComida" name="comida.tipoComida" (change)="actualizarTipoComida()">
@@ -38,7 +38,7 @@
                 <button type="button" (click)="buscarAlimento()" class="btn btn-light">Buscar</button>
             </div>
             <div *ngIf="comida && comida.listadoAlimentos && comida.listadoAlimentos.length > 0" class="col-md-auto">
-                <button type="submit" class="btn btn-primary" (click)="addComida()">Añadir</button>
+                <button type="submit" class="btn btn-primary">Añadir</button>
             </div>
             <div class="col-md-auto">
                 <button type="button" class="btn btn-danger" (click)="cancelar()">Cancelar</button>

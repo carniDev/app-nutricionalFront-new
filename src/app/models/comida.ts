@@ -5,4 +5,5 @@ export interface Comida {
     tipoComida: string;
     fechaComida: string;
     listadoAlimentos: Alimento[];
+    email:string;
 }

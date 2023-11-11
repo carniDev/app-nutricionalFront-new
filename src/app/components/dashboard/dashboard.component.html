@@ -29,17 +29,19 @@
                       </tr>
                   </thead>
                   <tbody>
-                      <tr >
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
+                      <tr *ngFor="let comida of informacion.comidas">
+                          <td>{{comida.tipoComida}}</td>
+                          <ng-container *ngFor="let alimento of comida.listadoAlimentos">
+                          <td>{{alimento.informacion.kcal}}</td>
+                          <td>{{alimento.informacion.kcal}}</td>
+                          <td>{{alimento.informacion.kcal}}</td>
+                          <td>{{alimento.informacion.kcal}}</td>
+                          </ng-container>
                       </tr>
                   </tbody>
               </table>
               <div class="d-flex justify-content-center">
-                  <button class="btn btn-primary" (click)="addComida()">Añadir comida</button>
+                  <button class="btn btn-primary" *ngIf="informacion.comidas.length<5" (click)="addComida()">Añadir comida</button>
               </div>
           </section>
       </main>

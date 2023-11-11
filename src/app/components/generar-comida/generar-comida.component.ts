@@ -1,3 +1,4 @@
+import { HttpResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Comida } from 'src/app/models/comida';
@@ -31,7 +32,14 @@ export class GenerarComidaComponent {
   }
 
   addComida(){
-    console.log(this.comida);
+    this.comidaService.guardarComida(this.comida)
+    this.comidaService.registrarComida().subscribe((resp) =>{
+      
+        this.router.navigate(['dashboard']);
+      
+    }, (error)=>{
+      console.log(error);
+    })
   }
 
   cancelar(){
