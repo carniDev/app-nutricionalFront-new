@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Alimento } from 'src/app/models/alimento';
 import { Comida } from 'src/app/models/comida';
-import { EditarService } from 'src/app/services/editar.service';
+import { ComidaService } from 'src/app/services/comida.service';
 
 @Component({
   selector: 'app-editar-comida',
@@ -14,23 +14,25 @@ export class EditarComidaComponent {
 
 
 
-  constructor(private editarService: EditarService, private router: Router) {
-    this.comida = this.editarService.getComida();
+  constructor(private comidaService: ComidaService, private router: Router) {
+    this.comida = this.comidaService.obtenerComida();
     this.comida.email='juan@email.com';
+    this.comida.fechaComida='11/11/2023';
     console.log(this.comida);
   }
 
   editarComida(){
-    this.editarService.editarComida().subscribe((resp) =>{
-      
+    this.comidaService.editarComida().subscribe((resp) =>{
+      this.comidaService.restablecerComida();
         this.router.navigate(['dashboard']);
+
       
     }, (error)=>{
       console.log(error);
     })
   }
   editarAlimento(alimento: Alimento) {
-    this.editarService.addAlimentoAEditar(alimento);
+    this.comidaService.addAlimentoAEditar(alimento);
     this.router.navigate(['buscar-ingrediente']);
     
   }
@@ -38,7 +40,7 @@ export class EditarComidaComponent {
 
 
   cancelar() {
-    this.editarService.restablecerComida();
+    this.comidaService.restablecerComida();
     this.router.navigate(['dashboard']);
 
   }

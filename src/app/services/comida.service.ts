@@ -8,10 +8,10 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ComidaService {
-  private comida: Comida; // Aquí guardamos el objeto Comida
+  private comida: Comida; 
+  alimentoAEditar!:Alimento;
 
   constructor(private http:HttpClient) { 
-    // Inicializamos el objeto Comida con valores por defecto
     this.comida = {
       idComida: null,
       tipoComida: '',
@@ -21,7 +21,7 @@ export class ComidaService {
     };
   }
 
-  // Métodos para trabajar con el objeto Comida
+  
   obtenerComida(): Comida {
     return this.comida;
   }
@@ -32,11 +32,24 @@ export class ComidaService {
       console.log(this.comida);
      return this.http.post(`http://localhost:8080/app-nutricional/comida/registrar`,this.comida,{responseType: 'text' as 'json'});
 
-
   }
+
+  editarComida():Observable<any>{
+    return this.http.put(`http://localhost:8080/app-nutricional/comida/editar`,this.comida,{responseType: 'text' as 'json'});
+ 
+ }
 
   agregarAlimento(alimento: Alimento): void {
     this.comida.listadoAlimentos.push(alimento);
+  }
+
+  addAlimentoAEditar(alimento:Alimento){
+    this.alimentoAEditar= alimento;
+    
+  }
+
+  getAlimentoAEditar():Alimento{
+    return this.alimentoAEditar;
   }
 
   setTipoComida(tipo: string): void {
@@ -45,6 +58,12 @@ export class ComidaService {
 
   getTipoComida(): string {
     return this.comida.tipoComida;
+  }
+  editarAlimentoAfterSearch(alimento:Alimento){
+    let objetoParaActualizar = this.comida.listadoAlimentos.find(objeto => objeto.idAlimento === alimento.idAlimento);
+    if (objetoParaActualizar) {
+    objetoParaActualizar.informacion = alimento.informacion;
+    }
   }
 
 
@@ -57,8 +76,8 @@ export class ComidaService {
     return `${dia}/${mes}/${año}`;
   }
 
-  restablecerComida():Comida{
-      return  {
+  restablecerComida(){
+      this.comida=  {
         idComida: null,
         tipoComida: '',
         fechaComida: this.obtenerFechaHoyFormatoDDMMYYYY(),

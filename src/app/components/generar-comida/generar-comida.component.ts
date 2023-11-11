@@ -43,7 +43,7 @@ export class GenerarComidaComponent {
   }
 
   cancelar(){
-    this.comida=this.comidaService.restablecerComida();
+    this.comidaService.restablecerComida();
     this.comidaService.guardarComida(this.comida);
     this.router.navigate(['dashboard']);
 
