@@ -29,7 +29,7 @@
                       </tr>
                   </thead>
                   <tbody>
-                      <tr *ngFor="let comida of informacion.comidas">
+                      <tr *ngFor="let comida of informacion.comidas" (click)="editar(comida)">
                           <td>{{comida.tipoComida}}</td>
                           <ng-container *ngFor="let alimento of comida.listadoAlimentos">
                           <td>{{alimento.informacion.kcal}}</td>

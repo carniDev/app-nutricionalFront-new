@@ -5,6 +5,7 @@ import { Alimento } from 'src/app/models/alimento';
 import { InformacionAlimento } from 'src/app/models/informacion-alimento';
 import { BusquedaService } from 'src/app/services/busqueda.service';
 import { ComidaService } from 'src/app/services/comida.service';
+import { EditarService } from 'src/app/services/editar.service';
 
 @Component({
   selector: 'app-buscar-ingrediente',
@@ -19,7 +20,10 @@ export class BuscarIngredienteComponent {
 
 
 
-  constructor(private busquedaService: BusquedaService, private comidaService: ComidaService, private router: Router) { }
+  constructor(private busquedaService: BusquedaService, private comidaService: ComidaService, private router: Router,private editarService:EditarService) {
+
+    this.alimento=this.editarService.getAlimentoAEditar();
+  }
 
 
   buscar() {
@@ -29,17 +33,29 @@ export class BuscarIngredienteComponent {
   }
 
   addInfo() {
+    if(this.alimento==undefined){
     this.comidaService.agregarAlimento(this.alimento);
     this.router.navigate(['generar-comida']);
-
+    }else{
+      this.editarService.editarAlimentoAfterSearch(this.alimento);
+      this.router.navigate(['editar-comida']);
+    }
+  
   }
+
   seleccionarInfo(informacion: InformacionAlimento) {
     this.alimentoSeleccionado = informacion;
+
+    if(this.alimento==undefined){
     this.alimento = {
       idAlimento: null,
       informacion: this.alimentoSeleccionado,
       cantidadAlimento: 0
     }
+  }else{
+    this.alimento.informacion=informacion;
+  }
+
     
   }
 

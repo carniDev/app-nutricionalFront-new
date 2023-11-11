@@ -1,1 +1,50 @@
-<p>editar-comida works!</p>
+<div class="container mt-5">
+    <h2 class="text-center">Comida para editar</h2>
+    <form >
+        <div class="form-group">
+            <label for="tipoComida">Tipo de Comida</label>
+            <select class="form-control" [(ngModel)]="comida.tipoComida" id="tipoComida"  name="comida.tipoComida" >
+                <option value="">Seleccione una comida</option>
+                <option value="DESAYUNO">Desayuno</option>
+                <option value="ALMUERZO">Almuerzo</option>
+                <option value="COMIDA">Comida</option>
+                <option value="MERIENDA">Merienda</option>
+                <option value="CENA">Cena</option>
+            </select>
+        </div>
+
+      
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover align-middle">
+                <thead>
+                    <tr>
+                        <th>cantidad</th>
+                        <th>codigo alimento</th>
+                        <th>nombre alimento</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let alimento of comida.listadoAlimentos" (click)="editarAlimento(alimento)">
+                        <td><input type="text" [(ngModel)]="alimento.cantidadAlimento" name="alimento.cantidadAlimento"></td>
+                        <ng-container *ngIf="alimento.informacion!=null">
+                        <td>{{alimento.informacion.codigoAlimento}}</td>
+                        <td>{{alimento.informacion.nombre}}</td>
+                    </ng-container>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="row justify-content-end">
+            <div class="col-md-auto">
+                <button *ngIf="comida.listadoAlimentos.length>5" type="button"  class="btn btn-light">Buscar</button>
+            </div>
+            <div class="col-md-auto">
+                <button type="submit" class="btn btn-primary">Añadir</button>
+            </div>
+            <div class="col-md-auto">
+                <button type="button" class="btn btn-danger" (click)="cancelar()">Cancelar</button>
+            </div>
+        </div>
+    </form>
+</div>
