@@ -33,7 +33,6 @@ export class BuscarIngredienteComponent {
   }
 
   seleccionarInfo(informacion: InformacionAlimento) {
-    console.log(this.alimento)
     if (this.alimento == undefined) {
       this.alimento = {
         idAlimento: null,
@@ -50,10 +49,11 @@ export class BuscarIngredienteComponent {
   }
 
   reset() {
+    
 
   }
   cancelar() {
-    this.router.navigate(['generar-comida']);
+    this.router.navigate([]);
   }
 
 }

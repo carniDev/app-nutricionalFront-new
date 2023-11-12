@@ -8,10 +8,11 @@ import { GenerarComidaComponent } from './components/generar-comida/generar-comi
 import { EditarComidaComponent } from './components/editar-comida/editar-comida.component';
 import { BuscarIngredienteComponent } from './components/buscar-ingrediente/buscar-ingrediente.component';
 import { LoginComponent } from './components/login/login.component';
-import { RegistrarUsuarioComponent } from './components/registrar-usuario/registrar-usuario.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ChartsComponent } from './components/charts/charts.component';
 import { FormsModule } from '@angular/forms';
+import { RegistroComponent } from './components/registrar-usuario/registrar-usuario.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 @NgModule({
@@ -22,8 +23,9 @@ import { FormsModule } from '@angular/forms';
     EditarComidaComponent,
     BuscarIngredienteComponent,
     LoginComponent,
-    RegistrarUsuarioComponent,
+    RegistroComponent,
     ChartsComponent,
+    HomeComponent
     
   ],
   imports: [
