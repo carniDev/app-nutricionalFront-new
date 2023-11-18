@@ -4,7 +4,7 @@
           <li class="list-group-item bg-dark border-0"><a href="#" class="text-white">Inicio</a></li>
           <li class="list-group-item bg-dark border-0"><a href="#" class="text-white">Añadir Comida</a></li>
           <li class="list-group-item bg-dark border-0"><a href="#" class="text-white">Configuración</a></li>
-          <li class="list-group-item bg-dark border-0"><a href="#" class="text-white">Logout</a></li>
+          <li class="list-group-item bg-dark border-0"><a (click)="logout()" class="text-white">Logout</a></li>
       </ul>
   </div>
   <div  *ngIf="informacionNutricional | async  as informacion"ng class="main-content col-md-10 px-4">

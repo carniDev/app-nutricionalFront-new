@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { Usuario } from '../models/usuario';
+import { Auth } from '../models/auth.model';
 
 @Injectable({
   providedIn: 'root'
@@ -20,13 +21,15 @@ export class AuthService {
     }
   }
 
-  login(emailObtenido: string):Observable<any> {
-    return this.http.get(`http://localhost:8080/app-nutricional/usuario/informacion?email=${emailObtenido}`,{ responseType: 'text' });
+  login(email: string,password:string):Observable<Auth> {
+    return this.http.post<Auth>(`http://localhost:8080/app-nutricional/auth/login`,{email,password}).pipe(tap(response=>{
+      localStorage.setItem('auth_service',response.token);
+    }));
   }
   
 
-  register(user: Usuario):Observable<any> {
-    return this.http.post('http://localhost:8080/app-nutricional/usuario/registrar', user, { responseType: 'text' });
+  register(user: Usuario):Observable<Auth> {
+    return this.http.post<Auth>('http://localhost:8080/app-nutricional/auth/register', user);
   }
 
 
@@ -37,4 +40,17 @@ export class AuthService {
   setUsuario(usuario:Usuario){
     this.usuario = usuario;
   }
+
+  getToken(): string {
+    return localStorage.getItem('auth_token') ?? "";
+  }
+
+  isAuthenticated(): boolean {
+    return !!this.getToken();
+  }
+
+  logout() {
+    localStorage.clear();
+  }
+
 }

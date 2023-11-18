@@ -16,9 +16,9 @@ export class EditarComidaComponent {
 
   constructor(private comidaService: ComidaService, private router: Router) {
     this.comida = this.comidaService.obtenerComida();
-    this.comida.email='juan@email.com';
-    this.comida.fechaComida='11/11/2023';
-    console.log(this.comida);
+    
+    console.log(this.comida)
+    
   }
 
   editarComida(){
@@ -44,6 +44,14 @@ export class EditarComidaComponent {
     this.router.navigate(['dashboard']);
 
   }
+
+  private formatDate(dateString: string): string {
+    const date = new Date(dateString);
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, '0'); // +1 porque los meses comienzan en 0
+    const year = date.getFullYear();
+    return `${day}/${month}/${year}`;
+}
 
 
 

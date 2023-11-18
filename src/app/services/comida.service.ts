@@ -17,7 +17,7 @@ export class ComidaService {
       tipoComida: '',
       fechaComida: this.obtenerFechaHoyFormatoDDMMYYYY(),
       listadoAlimentos: [],
-      email: 'juan@email.com'
+      email:''
     };
   }
 
@@ -35,6 +35,9 @@ export class ComidaService {
   }
 
   editarComida():Observable<any>{
+    const fecha = this.formatDate(this.comida.fechaComida);
+    this.comida.fechaComida=fecha;
+    console.log(this.comida);
     return this.http.put(`http://localhost:8080/app-nutricional/comida/editar`,this.comida,{responseType: 'text' as 'json'});
  
  }
@@ -74,6 +77,17 @@ export class ComidaService {
     const año = hoy.getFullYear();
   
     return `${dia}/${mes}/${año}`;
+  }
+
+  private formatDate(dateString: string): string {
+    const date = new Date(dateString);
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const year = date.getFullYear();
+    return `${day}/${month}/${year}`;
+}
+  setEmail(email:string){
+    this.comida.email= email;
   }
 
   restablecerComida(){
