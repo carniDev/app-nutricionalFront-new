@@ -53,7 +53,7 @@ export class BuscarIngredienteComponent {
 
   }
   cancelar() {
-    this.router.navigate([]);
+    this.router.navigate(['dashboard']);
   }
 
 }

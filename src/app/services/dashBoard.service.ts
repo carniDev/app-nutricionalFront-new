@@ -15,4 +15,8 @@ constructor(private http: HttpClient) {}
   buscar(credentials:any):Observable<InformacionNutricional> {
     return this.http.get<InformacionNutricional>(`http://localhost:8080/app-nutricional/dashboard/informacion-diaria?fechaDia=${credentials.fechaBuscar}&email=${credentials.email}`);
   }
+
+  generarDashboard(email:string):Observable<InformacionNutricional> {
+    return this.http.post<InformacionNutricional>(`http://localhost:8080/app-nutricional/dashboard/registrar`,email);
+  }
 }

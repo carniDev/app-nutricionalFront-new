@@ -30,7 +30,7 @@ export class ChartsComponent {
         }]
       },
       options: {
-        cutout: '70%',
+        cutout: '50%',
         responsive: true,
         maintainAspectRatio: false,
       }
@@ -45,7 +45,7 @@ export class ChartsComponent {
         }]
       },
       options: {
-        cutout: '70%',
+        cutout: '50%',
         responsive: true,
         maintainAspectRatio: false,
       }
@@ -56,11 +56,11 @@ export class ChartsComponent {
         labels: ['Carbohidratos'],
         datasets: [{
           data: [this.carbData],
-          backgroundColor: ['#FF5733']
+          backgroundColor: ['#33FF57']
         }]
       },
       options: {
-        cutout: '70%',
+        cutout: '50%',
         responsive: true,
         maintainAspectRatio: false,
       }
@@ -71,11 +71,11 @@ export class ChartsComponent {
         labels: ['grasas'],
         datasets: [{
           data: [this.fatData],
-          backgroundColor: ['#FF5733']
+          backgroundColor: ['#33A3FF']
         }]
       },
       options: {
-        cutout: '70%',
+        cutout: '50%',
         responsive: true,
         maintainAspectRatio: false,
       }
