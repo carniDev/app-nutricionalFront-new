@@ -25,7 +25,10 @@ export class DashboardComponent {
       fechaBuscar: this.obtenerFechaHoyFormatoDDMMYYYY(), email:
         this.email
     };
+
+
     this.informacionNutricional = this.dashboardService.buscar(credentials);
+
   }
 
   obtenerEmail() {

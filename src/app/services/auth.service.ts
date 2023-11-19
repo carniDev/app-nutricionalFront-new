@@ -23,6 +23,9 @@ export class AuthService {
 
   login(email: string,password:string):Observable<Auth> {
     return this.http.post<Auth>(`http://localhost:8080/app-nutricional/auth/login`,{email,password}).pipe(tap(response=>{
+      if(localStorage.getItem('auth_service')){
+        localStorage.clear();
+      }
       localStorage.setItem('auth_service',response.token);
     }));
   }
