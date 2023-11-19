@@ -11,10 +11,12 @@ import { ComidaService } from 'src/app/services/comida.service';
 })
 export class GenerarComidaComponent {
   comida!:Comida;
+  tipoComida!:string[];
 
 
   constructor(private comidaService:ComidaService,private router:Router){
     this.comida = comidaService.obtenerComida();
+    this.tipoComida=comidaService.getTipoComidaDisponible();
   }
 
   ngOnInit(): void {
@@ -47,4 +49,6 @@ export class GenerarComidaComponent {
     this.router.navigate(['dashboard']);
 
   }
+
+  
 }

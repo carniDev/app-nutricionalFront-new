@@ -3,17 +3,16 @@
     <form (ngSubmit)="addComida()">
         <div class="form-group">
             <label for="tipoComida">Tipo de Comida</label>
-            <select class="form-control" id="tipoComida" [(ngModel)]="comida.tipoComida" name="comida.tipoComida" (change)="actualizarTipoComida()">
+            <select class="form-control" id="tipoComida" [(ngModel)]="comida.tipoComida" name="comida.tipoComida"
+                (change)="actualizarTipoComida()">
                 <option value="">Seleccione una comida</option>
-                <option value="DESAYUNO">Desayuno</option>
-                <option value="ALMUERZO">Almuerzo</option>
-                <option value="COMIDA">Comida</option>
-                <option value="MERIENDA">Merienda</option>
-                <option value="CENA">Cena</option>
+                <ng-container  *ngFor="let tipo of tipoComida">
+                    <option value="{{tipo}}">{{tipo}}</option>
+                </ng-container>
             </select>
         </div>
 
-      
+
         <div class="table-responsive" *ngIf="comida && comida.listadoAlimentos && comida.listadoAlimentos.length > 0">
             <table class="table table-bordered table-hover align-middle">
                 <thead>
@@ -25,7 +24,8 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let alimento of comida.listadoAlimentos">
-                        <td><input type="text" [(ngModel)]="alimento.cantidadAlimento" name="alimento.cantidadAlimento"></td>
+                        <td><input type="text" [(ngModel)]="alimento.cantidadAlimento" name="alimento.cantidadAlimento">
+                        </td>
                         <td>{{ alimento.informacion.codigoAlimento }}</td>
                         <td>{{ alimento.informacion.nombre }}</td>
                     </tr>
@@ -33,7 +33,7 @@
             </table>
         </div>
 
-        <div class="row justify-content-end">
+        <div class="botones row justify-content-center">
             <div class="col-md-auto">
                 <button type="button" (click)="buscarAlimento()" class="btn btn-light">Buscar</button>
             </div>

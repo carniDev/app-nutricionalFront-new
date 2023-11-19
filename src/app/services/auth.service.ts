@@ -49,7 +49,6 @@ export class AuthService {
   }
 
   isAuthenticated(): boolean {
-    console.log("respuesta"+!!this.getToken())
     return !!this.getToken();
   }
 

@@ -1,9 +1,30 @@
-
-
 .container {
-    max-width: 600px;
-}
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50vh; 
+    margin-top: -50px; 
+  }
+  
+  
+  @media (max-height: 500px) {
+    .container {
+      height: auto;
+      margin-top: 0;
+    }
+  }
+  
+  
+  form {
+    width: 100%; 
+    max-width: 500px; 
+  }
 
 h2 {
     margin-bottom: 30px;
+}
+
+div {
+    margin-top: 10px;
 }

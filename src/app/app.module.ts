@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { RegistroComponent } from './components/registrar-usuario/registrar-usuario.component';
 import { HomeComponent } from './components/home/home.component';
 import { AuthInterceptor } from './auth.interceptor';
+import { MenuComponent } from './components/menu/menu.component';
 
 
 
@@ -28,7 +29,8 @@ import { AuthInterceptor } from './auth.interceptor';
     LoginComponent,
     RegistroComponent,
     ChartsComponent,
-    HomeComponent
+    HomeComponent,
+    MenuComponent
     
   ],
   imports: [

@@ -14,9 +14,10 @@ import { DashboardService } from 'src/app/services/dashBoard.service';
 })
 export class DashboardComponent {
   informacionNutricional!: Observable<InformacionNutricional>;
+  tipoComida:string[];
   email: string = "juan2@email.com";
   constructor(private route: Router, private dashboardService: DashboardService, private comidaService: ComidaService,private auth:AuthService) {
-
+this.tipoComida= [];
   }
 
   ngOnInit(): void {
@@ -25,10 +26,15 @@ export class DashboardComponent {
       fechaBuscar: this.obtenerFechaHoyFormatoDDMMYYYY(), email:
         this.email
     };
-
-
     this.informacionNutricional = this.dashboardService.buscar(credentials);
+    this.addTipoComida();
+    
+  }
+  ngAfterViewInit(): void {
+    console.log(this.tipoComida)
+    
 
+   
   }
 
   obtenerEmail() {
@@ -46,6 +52,7 @@ export class DashboardComponent {
 
   addComida() {
     this.comidaService.setEmail(this.email);
+    this.comidaService.setTipoComidaDisponible(this.tipoComida);
     this.route.navigate(['generar-comida']);
   }
 
@@ -70,4 +77,16 @@ export class DashboardComponent {
     this.auth.logout();
     this.route.navigate(['']);
   }
+
+  private addTipoComida(){
+    
+    this.informacionNutricional.forEach(response =>{
+      if(response!=null){
+      response.comidas.forEach(comida=>{
+
+        this.tipoComida.push(comida.tipoComida);
+      })
+    }})
+  }
+  
 }

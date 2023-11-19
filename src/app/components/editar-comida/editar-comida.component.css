@@ -1,6 +1,11 @@
 .container {
-    max-width: 600px;
-}
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50vh; 
+    margin-top: -50px; 
+  }
 
 h2 {
     margin-bottom: 30px;

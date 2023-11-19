@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 export class ComidaService {
   private comida: Comida;
   alimentoAEditar!: Alimento;
+  tipoComida!:string[];
 
   constructor(private http: HttpClient) {
     this.comida = {
@@ -21,7 +22,9 @@ export class ComidaService {
     };
   }
 
-
+ngOnInit(): void {
+  
+}
   obtenerComida(): Comida {
     return this.comida;
   }
@@ -92,6 +95,18 @@ export class ComidaService {
   }
   setEmail(email: string) {
     this.comida.email = email;
+  }
+
+  setTipoComidaDisponible(tipoComida:string[]):void{
+    const comida =['DESAYUNO','ALMUERZO','COMIDA','MERIENDA','CENA'];
+    console.log(tipoComida)
+    this.tipoComida=comida.filter(item => !tipoComida.includes(item))
+    .concat(tipoComida.filter(item => !comida.includes(item)));
+    console.log(this.tipoComida)
+    
+  }
+  getTipoComidaDisponible():string[]{
+    return this.tipoComida;
   }
 
   restablecerComida() {
