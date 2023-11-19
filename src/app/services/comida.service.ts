@@ -29,7 +29,6 @@ export class ComidaService {
     this.comida = comida;
   }
   registrarComida(): Observable<any> {
-    console.log(this.comida);
     return this.http.post(`http://localhost:8080/app-nutricional/comida/registrar`, this.comida, { responseType: 'text' as 'json' });
 
   }
