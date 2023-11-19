@@ -47,6 +47,7 @@ export class EditarComidaComponent {
 
   eliminar(){
     this.comidaService.eliminarComida().subscribe(response =>{
+      this.comidaService.restablecerComida();
       this.router.navigate(['dashboard']);
     }, (error)=>{
       console.log(error);
