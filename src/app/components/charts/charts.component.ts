@@ -30,7 +30,7 @@ export class ChartsComponent {
         }]
       },
       options: {
-        cutout: '70%',
+        cutout: '50%',
         responsive: true,
         maintainAspectRatio: false,
       }
@@ -45,7 +45,7 @@ export class ChartsComponent {
         }]
       },
       options: {
-        cutout: '70%',
+        cutout: '50%',
         responsive: true,
         maintainAspectRatio: false,
       }
@@ -60,7 +60,7 @@ export class ChartsComponent {
         }]
       },
       options: {
-        cutout: '70%',
+        cutout: '50%',
         responsive: true,
         maintainAspectRatio: false,
       }
@@ -75,7 +75,7 @@ export class ChartsComponent {
         }]
       },
       options: {
-        cutout: '70%',
+        cutout: '50%',
         responsive: true,
         maintainAspectRatio: false,
       }

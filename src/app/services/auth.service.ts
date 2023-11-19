@@ -45,10 +45,11 @@ export class AuthService {
   }
 
   getToken(): string {
-    return localStorage.getItem('auth_token') ?? "";
+    return localStorage.getItem('auth_service') ?? "";
   }
 
   isAuthenticated(): boolean {
+    console.log("respuesta"+!!this.getToken())
     return !!this.getToken();
   }
 

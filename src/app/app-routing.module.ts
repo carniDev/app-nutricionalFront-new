@@ -7,15 +7,16 @@ import { EditarComidaComponent } from './components/editar-comida/editar-comida.
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistroComponent } from './components/registrar-usuario/registrar-usuario.component';
+import { authGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'registro', component: RegistroComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'generar-comida', component: GenerarComidaComponent },
-  { path: 'buscar-ingrediente', component: BuscarIngredienteComponent },
-  { path: 'editar-comida', component: EditarComidaComponent }
+  { path: 'dashboard', component: DashboardComponent, canActivate:[authGuard]},
+  { path: 'generar-comida', component: GenerarComidaComponent, canActivate:[authGuard] },
+  { path: 'buscar-ingrediente', component: BuscarIngredienteComponent, canActivate:[authGuard] },
+  { path: 'editar-comida', component: EditarComidaComponent, canActivate:[authGuard] }
 
 ];
 

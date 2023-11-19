@@ -19,7 +19,6 @@ export class GenerarComidaComponent {
 
   ngOnInit(): void {
    
-    console.log(this.comida)
   }
   buscarAlimento(){
     this.comidaService.guardarComida(this.comida)
@@ -34,7 +33,7 @@ export class GenerarComidaComponent {
   addComida(){
     this.comidaService.guardarComida(this.comida)
     this.comidaService.registrarComida().subscribe((resp) =>{
-      
+        this.comidaService.restablecerComida();      
         this.router.navigate(['dashboard']);
       
     }, (error)=>{
