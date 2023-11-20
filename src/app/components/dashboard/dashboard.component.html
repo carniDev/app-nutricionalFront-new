@@ -25,12 +25,11 @@
                 <tbody>
                     <tr *ngFor="let comida of informacion.comidas" (click)="editar(comida)">
                         <td>{{comida.tipoComida}}</td>
-                        <ng-container *ngFor="let alimento of comida.listadoAlimentos">
-                            <td>{{alimento.informacion.kcal}}</td>
-                            <td>{{alimento.informacion.kcal}}</td>
-                            <td>{{alimento.informacion.kcal}}</td>
-                            <td>{{alimento.informacion.kcal}}</td>
-                        </ng-container>
+                            <td>{{comida.kcal}}</td>
+                            <td>{{comida.hidratosCarbono}}</td>
+                            <td>{{comida.proteinas}}</td>
+                            <td>{{comida.grasas}}</td>
+                       
                     </tr>
                 </tbody>
             </table>

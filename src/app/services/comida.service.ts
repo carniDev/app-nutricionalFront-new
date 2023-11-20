@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 export class ComidaService {
   private comida: Comida;
   alimentoAEditar!: Alimento;
-  tipoComida!:string[];
+  tipoComida!: string[];
 
   constructor(private http: HttpClient) {
     this.comida = {
@@ -18,13 +18,19 @@ export class ComidaService {
       tipoComida: '',
       fechaComida: this.obtenerFechaHoyFormatoDDMMYYYY(),
       listadoAlimentos: [],
-      email: ''
+      email: '',
+      kcal: 0,
+      hidratosCarbono: 0,
+      proteinas: 0,
+      grasas: 0
+
+
     };
   }
 
-ngOnInit(): void {
-  
-}
+  ngOnInit(): void {
+
+  }
   obtenerComida(): Comida {
     return this.comida;
   }
@@ -46,7 +52,7 @@ ngOnInit(): void {
   eliminarComida(): Observable<any> {
     const fecha = this.formatDate(this.comida.fechaComida);
     this.comida.fechaComida = fecha;
-    return this.http.delete(`http://localhost:8080/app-nutricional/comida/eliminar?fechaDia=${this.comida.fechaComida}&email=${this.comida.email}&tipoComida=${this.comida.tipoComida}`,{ responseType: 'text' as 'json' });
+    return this.http.delete(`http://localhost:8080/app-nutricional/comida/eliminar?fechaDia=${this.comida.fechaComida}&email=${this.comida.email}&tipoComida=${this.comida.tipoComida}`, { responseType: 'text' as 'json' });
   }
 
   agregarAlimento(alimento: Alimento): void {
@@ -97,15 +103,15 @@ ngOnInit(): void {
     this.comida.email = email;
   }
 
-  setTipoComidaDisponible(tipoComida:string[]):void{
-    const comida =['DESAYUNO','ALMUERZO','COMIDA','MERIENDA','CENA'];
+  setTipoComidaDisponible(tipoComida: string[]): void {
+    const comida = ['DESAYUNO', 'ALMUERZO', 'COMIDA', 'MERIENDA', 'CENA'];
     console.log(tipoComida)
-    this.tipoComida=comida.filter(item => !tipoComida.includes(item))
-    .concat(tipoComida.filter(item => !comida.includes(item)));
+    this.tipoComida = comida.filter(item => !tipoComida.includes(item))
+      .concat(tipoComida.filter(item => !comida.includes(item)));
     console.log(this.tipoComida)
-    
+
   }
-  getTipoComidaDisponible():string[]{
+  getTipoComidaDisponible(): string[] {
     return this.tipoComida;
   }
 
@@ -115,7 +121,11 @@ ngOnInit(): void {
       tipoComida: '',
       fechaComida: this.obtenerFechaHoyFormatoDDMMYYYY(),
       listadoAlimentos: [],
-      email: ''
+      email: '',
+      kcal: 0,
+      hidratosCarbono: 0,
+      proteinas: 0,
+      grasas: 0
     };
   }
 }

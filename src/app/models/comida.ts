@@ -6,4 +6,8 @@ export interface Comida {
     fechaComida: string;
     listadoAlimentos: Alimento[];
     email:string;
+    kcal:number,
+    hidratosCarbono:number,
+    proteinas:number,
+    grasas:number
 }
