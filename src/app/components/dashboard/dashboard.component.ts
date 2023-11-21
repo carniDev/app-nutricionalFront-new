@@ -15,26 +15,24 @@ import { DashboardService } from 'src/app/services/dashBoard.service';
 export class DashboardComponent {
   informacionNutricional!: Observable<InformacionNutricional>;
   tipoComida:string[];
-  email: string = "juan2@email.com";
+  email: string = localStorage.getItem('email')!;
   constructor(private route: Router, private dashboardService: DashboardService, private comidaService: ComidaService,private auth:AuthService) {
 this.tipoComida= [];
   }
 
   ngOnInit(): void {
     this.obtenerEmail();
-    const credentials = {
+    const credentialsFind = {
       fechaBuscar: this.obtenerFechaHoyFormatoDDMMYYYY(), email:
         this.email
     };
-    this.informacionNutricional = this.dashboardService.buscar(credentials);
+    this.informacionNutricional = this.dashboardService.buscar(credentialsFind);
     this.addTipoComida();
     
   }
   ngAfterViewInit(): void {
     console.log(this.tipoComida)
     
-
-   
   }
 
   obtenerEmail() {
@@ -51,13 +49,11 @@ this.tipoComida= [];
 
 
   addComida() {
-    this.comidaService.setEmail(this.email);
     this.comidaService.setTipoComidaDisponible(this.tipoComida);
     this.route.navigate(['generar-comida']);
   }
 
   editar(comida: Comida) {
-    comida.email=this.email;
     this.comidaService.guardarComida(comida);
     this.route.navigate(['editar-comida']);
 
