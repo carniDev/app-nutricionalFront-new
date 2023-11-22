@@ -15,6 +15,7 @@ import { RegistroComponent } from './components/registrar-usuario/registrar-usua
 import { HomeComponent } from './components/home/home.component';
 import { AuthInterceptor } from './auth.interceptor';
 import { MenuComponent } from './components/menu/menu.component';
+import { ConfigurarComponent } from './components/configurar/configurar.component';
 
 
 
@@ -30,7 +31,8 @@ import { MenuComponent } from './components/menu/menu.component';
     RegistroComponent,
     ChartsComponent,
     HomeComponent,
-    MenuComponent
+    MenuComponent,
+    ConfigurarComponent
     
   ],
   imports: [

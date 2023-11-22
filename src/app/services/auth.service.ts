@@ -21,12 +21,14 @@ export class AuthService {
     }
   }
 
-  login(email: string,password:string):Observable<Auth> {
-    return this.http.post<Auth>(`http://localhost:8080/app-nutricional/auth/login`,{email,password}).pipe(tap(response=>{
-    localStorage.clear();
-      localStorage.setItem('auth_service',response.token);
-      localStorage.setItem('email',response.email);
-    }));
+  login(email: string, password: string): Observable<Auth> {
+    return this.http.post<Auth>(`http://localhost:8080/app-nutricional/auth/login`, { email, password }).pipe(
+      tap(response => {
+        localStorage.clear();
+        localStorage.setItem('auth_service', response.token);
+        localStorage.setItem('email', response.email);
+      })
+    );
   }
   
 
