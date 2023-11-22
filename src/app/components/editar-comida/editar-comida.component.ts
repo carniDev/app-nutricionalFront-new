@@ -17,8 +17,6 @@ export class EditarComidaComponent {
   constructor(private comidaService: ComidaService, private router: Router) {
     this.comida = this.comidaService.obtenerComida();
     
-    console.log(this.comida)
-    
   }
 
   editarComida(){

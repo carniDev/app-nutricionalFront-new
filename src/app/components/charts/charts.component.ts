@@ -32,53 +32,10 @@ export class ChartsComponent {
       options: {
         cutout: '50%',
         responsive: true,
-        maintainAspectRatio: false,
-      }
-    });
-    new Chart('proteinChart', {
-      type: 'doughnut',
-      data: {
-        labels: ['Proteínas'],
-        datasets: [{
-          data: [this.proteinData],
-          backgroundColor: ['#FF5733']
-        }]
-      },
-      options: {
-        cutout: '50%',
-        responsive: true,
-        maintainAspectRatio: false,
-      }
-    });
-    new Chart('carbChart', {
-      type: 'doughnut',
-      data: {
-        labels: ['Carbohidratos'],
-        datasets: [{
-          data: [this.carbData],
-          backgroundColor: ['#33FF57']
-        }]
-      },
-      options: {
-        cutout: '50%',
-        responsive: true,
-        maintainAspectRatio: false,
-      }
-    });
-    new Chart('fatChart', {
-      type: 'doughnut',
-      data: {
-        labels: ['grasas'],
-        datasets: [{
-          data: [this.fatData],
-          backgroundColor: ['#33A3FF']
-        }]
-      },
-      options: {
-        cutout: '50%',
-        responsive: true,
-        maintainAspectRatio: false,
-      }
+        maintainAspectRatio: true,
+        
+        }
+      
     });
   }
 }

@@ -3,6 +3,7 @@ import { Comida } from '../models/comida';
 import { Alimento } from '../models/alimento';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -11,24 +12,25 @@ export class ComidaService {
   private comida: Comida;
   alimentoAEditar!: Alimento;
   tipoComida!: string[];
+  email: string = localStorage.getItem('email')!;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router:Router) {
     this.comida = {
       idComida: null,
       tipoComida: '',
       fechaComida: this.obtenerFechaHoyFormatoDDMMYYYY(),
       listadoAlimentos: [],
-      email: localStorage.getItem('email')!,
+      email:this.email,
       kcal: 0,
       hidratosCarbono: 0,
       proteinas: 0,
       grasas: 0
-
-
     };
+    
   }
 
   ngOnInit(): void {
+    console.log(this.comida);
 
   }
   obtenerComida(): Comida {
@@ -43,6 +45,7 @@ export class ComidaService {
   }
 
   editarComida(): Observable<any> {
+    this.comida.email = this.email;
     const fecha = this.formatDate(this.comida.fechaComida);
     this.comida.fechaComida = fecha;
     return this.http.put(`http://localhost:8080/app-nutricional/comida/editar`, this.comida, { responseType: 'text' as 'json' });
@@ -50,6 +53,7 @@ export class ComidaService {
   }
 
   eliminarComida(): Observable<any> {
+    this.comida.email = this.email;
     const fecha = this.formatDate(this.comida.fechaComida);
     this.comida.fechaComida = fecha;
     return this.http.delete(`http://localhost:8080/app-nutricional/comida/eliminar?fechaDia=${this.comida.fechaComida}&email=${this.comida.email}&tipoComida=${this.comida.tipoComida}`, { responseType: 'text' as 'json' });
@@ -99,17 +103,14 @@ export class ComidaService {
     const year = date.getFullYear();
     return `${day}/${month}/${year}`;
   }
-  setEmail(email: string) {
-    this.comida.email = email;
+  getEmail(){
+    return this.email;
   }
 
   setTipoComidaDisponible(tipoComida: string[]): void {
     const comida = ['DESAYUNO', 'ALMUERZO', 'COMIDA', 'MERIENDA', 'CENA'];
-    console.log(tipoComida)
     this.tipoComida = comida.filter(item => !tipoComida.includes(item))
       .concat(tipoComida.filter(item => !comida.includes(item)));
-    console.log(this.tipoComida)
-
   }
   getTipoComidaDisponible(): string[] {
     return this.tipoComida;
@@ -121,11 +122,13 @@ export class ComidaService {
       tipoComida: '',
       fechaComida: this.obtenerFechaHoyFormatoDDMMYYYY(),
       listadoAlimentos: [],
-      email: localStorage.getItem('email')!,
+      email:'',
       kcal: 0,
       hidratosCarbono: 0,
       proteinas: 0,
       grasas: 0
     };
   }
+
+  
 }

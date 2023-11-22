@@ -4,7 +4,7 @@
     <form (ngSubmit)="editarComida()">
         <div class="form-group">
             <label for="tipoComida">Tipo de Comida</label>
-            <select class="form-control" [(ngModel)]="comida.tipoComida" id="tipoComida"  name="comida.tipoComida" >
+            <select class="form-control" [(ngModel)]="comida.tipoComida" id="tipoComida" name="comida.tipoComida">
                 <option value="">Seleccione una comida</option>
                 <option value="DESAYUNO">Desayuno</option>
                 <option value="ALMUERZO">Almuerzo</option>
@@ -14,7 +14,7 @@
             </select>
         </div>
 
-      
+
         <div class="table-responsive">
             <table class="table table-bordered table-hover align-middle">
                 <thead>
@@ -25,12 +25,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let alimento of comida.listadoAlimentos" >
-                        <td><input type="text" [(ngModel)]="alimento.cantidadAlimento" name="alimento.cantidadAlimento"></td>
-                        <ng-container *ngIf="alimento.informacion!=null" (click)="editarAlimento(alimento)">
-                        <td >{{alimento.informacion.codigoAlimento}}</td>
-                        <td>{{alimento.informacion.nombre}}</td>
-                    </ng-container>
+                    <tr *ngFor="let alimento of comida.listadoAlimentos">
+                        <td><input type="text" [(ngModel)]="alimento.cantidadAlimento" name="alimento.cantidadAlimento">
+                        </td>
+                        <ng-container *ngIf="alimento.informacion!=null"(click)="editarAlimento(alimento)">
+                            <td>{{alimento.informacion.codigoAlimento}}</td>
+                            <td>{{alimento.informacion.nombre}}</td>
+                        </ng-container>
                     </tr>
                 </tbody>
             </table>
@@ -38,10 +39,10 @@
 
         <div class="row justify-content-center">
             <div class="col-md-auto">
-                <button *ngIf="comida.listadoAlimentos.length>5" type="button"  class="btn btn-light">Buscar</button>
+                <button *ngIf="comida.listadoAlimentos.length>5" type="button" class="btn btn-light">Buscar</button>
             </div>
             <div class="col-md-auto">
-                <button type="submit" class="btn btn-primary">Añadir</button>
+                <button type="submit" class="btn btn-primary">Editar</button>
             </div>
             <div class="col-md-auto">
                 <button type="button" class="btn btn-danger" (click)="cancelar()">Cancelar</button>
