@@ -26,7 +26,6 @@ export class AuthService {
       tap(response => {
         localStorage.clear();
         localStorage.setItem('auth_service', response.token);
-        localStorage.setItem('email', response.email);
       })
     );
   }

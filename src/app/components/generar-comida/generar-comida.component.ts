@@ -15,16 +15,14 @@ export class GenerarComidaComponent {
 
 
   constructor(private comidaService:ComidaService,private router:Router){
-    this.comida = comidaService.obtenerComida();
+    this.comida = this.comidaService.obtenerComida();
     this.tipoComida=comidaService.getTipoComidaDisponible();
   }
 
-  ngOnInit(): void {
-   
-  }
+  
   buscarAlimento(){
-    this.comidaService.guardarComida(this.comida)
-    console.log(this.comidaService.obtenerComida())
+    this.comidaService.guardarComida(this.comida);
+    console.log(this.comida);
     this.router.navigate(['buscar-ingrediente']);
   }
 
@@ -49,6 +47,7 @@ export class GenerarComidaComponent {
     this.router.navigate(['dashboard']);
 
   }
+
 
   
 }

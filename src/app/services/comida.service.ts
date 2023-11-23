@@ -9,30 +9,34 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class ComidaService {
-  private comida: Comida;
+  comida: Comida;
   alimentoAEditar!: Alimento;
   tipoComida!: string[];
-  email: string = localStorage.getItem('email')!;
+  tipo: string = '';
 
-  constructor(private http: HttpClient, private router:Router) {
+
+  constructor(private http: HttpClient, private router: Router) {
     this.comida = {
       idComida: null,
       tipoComida: '',
       fechaComida: this.obtenerFechaHoyFormatoDDMMYYYY(),
       listadoAlimentos: [],
-      email:this.email,
       kcal: 0,
       hidratosCarbono: 0,
       proteinas: 0,
       grasas: 0
     };
-    
+
+
   }
 
   ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
     console.log(this.comida);
-
   }
+
+
   obtenerComida(): Comida {
     return this.comida;
   }
@@ -40,12 +44,12 @@ export class ComidaService {
     this.comida = comida;
   }
   registrarComida(): Observable<any> {
+
     return this.http.post(`http://localhost:8080/app-nutricional/comida/registrar`, this.comida, { responseType: 'text' as 'json' });
 
   }
 
   editarComida(): Observable<any> {
-    this.comida.email = this.email;
     const fecha = this.formatDate(this.comida.fechaComida);
     this.comida.fechaComida = fecha;
     return this.http.put(`http://localhost:8080/app-nutricional/comida/editar`, this.comida, { responseType: 'text' as 'json' });
@@ -53,10 +57,9 @@ export class ComidaService {
   }
 
   eliminarComida(): Observable<any> {
-    this.comida.email = this.email;
     const fecha = this.formatDate(this.comida.fechaComida);
     this.comida.fechaComida = fecha;
-    return this.http.delete(`http://localhost:8080/app-nutricional/comida/eliminar?fechaDia=${this.comida.fechaComida}&email=${this.comida.email}&tipoComida=${this.comida.tipoComida}`, { responseType: 'text' as 'json' });
+    return this.http.delete(`http://localhost:8080/app-nutricional/comida/eliminar?fechaDia=${this.comida.fechaComida}&tipoComida=${this.comida.tipoComida}`, { responseType: 'text' as 'json' });
   }
 
   agregarAlimento(alimento: Alimento): void {
@@ -73,18 +76,21 @@ export class ComidaService {
   }
 
   setTipoComida(tipo: string): void {
-    this.comida.tipoComida = tipo;
+    this.tipo = tipo;
   }
 
-  getTipoComida(): string {
-    return this.comida.tipoComida;
+  getTipo(): string {
+    return this.tipo;
   }
+
+ 
   editarAlimentoAfterSearch(alimento: Alimento) {
     let objetoParaActualizar = this.comida.listadoAlimentos.find(objeto => objeto.idAlimento === alimento.idAlimento);
     if (objetoParaActualizar) {
       objetoParaActualizar.informacion = alimento.informacion;
     }
   }
+
 
 
   private obtenerFechaHoyFormatoDDMMYYYY(): string {
@@ -103,18 +109,18 @@ export class ComidaService {
     const year = date.getFullYear();
     return `${day}/${month}/${year}`;
   }
-  getEmail(){
-    return this.email;
-  }
+
 
   setTipoComidaDisponible(tipoComida: string[]): void {
     const comida = ['DESAYUNO', 'ALMUERZO', 'COMIDA', 'MERIENDA', 'CENA'];
     this.tipoComida = comida.filter(item => !tipoComida.includes(item))
       .concat(tipoComida.filter(item => !comida.includes(item)));
   }
+
   getTipoComidaDisponible(): string[] {
     return this.tipoComida;
   }
+
 
   restablecerComida() {
     this.comida = {
@@ -122,13 +128,11 @@ export class ComidaService {
       tipoComida: '',
       fechaComida: this.obtenerFechaHoyFormatoDDMMYYYY(),
       listadoAlimentos: [],
-      email:'',
       kcal: 0,
       hidratosCarbono: 0,
       proteinas: 0,
       grasas: 0
     };
   }
-
   
 }

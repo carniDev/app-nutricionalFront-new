@@ -16,28 +16,24 @@ import { DashboardService } from 'src/app/services/dashBoard.service';
 export class DashboardComponent {
   informacionNutricional!: Observable<InformacionNutricional>;
   tipoComida: string[];
-  email: string;
   macros: Macronutrientes;
   constructor(private route: Router, private dashboardService: DashboardService, private comidaService: ComidaService, private auth: AuthService) {
     this.tipoComida = [];
-    this.email= comidaService.getEmail();
     this.macros = new Macronutrientes();
 
   }
 
   ngOnInit(): void {
     const credentialsFind = {
-      fechaBuscar: this.obtenerFechaHoyFormatoDDMMYYYY(), email:
-        this.email
+      fechaBuscar: this.obtenerFechaHoyFormatoDDMMYYYY()
     };
     this.informacionNutricional = this.dashboardService.buscar(credentialsFind);
     this.addTipoComida();
-
-
   }
 
 
   addComida() {
+    console.log(this.tipoComida);
     this.comidaService.setTipoComidaDisponible(this.tipoComida);
     this.route.navigate(['generar-comida']);
   }

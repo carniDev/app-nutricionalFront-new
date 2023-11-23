@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, Subject, debounceTime, distinctUntilChanged } from 'rxjs';
 import { Alimento } from 'src/app/models/alimento';
 import { InformacionAlimento } from 'src/app/models/informacion-alimento';
 import { BusquedaService } from 'src/app/services/busqueda.service';
@@ -11,18 +11,24 @@ import { ComidaService } from 'src/app/services/comida.service';
   styleUrls: ['./buscar-ingrediente.component.css']
 })
 export class BuscarIngredienteComponent {
-  nombre!: string;
   alimentoInformacion!: Observable<InformacionAlimento[]>;
   alimento!: Alimento;
-
+  nombre = '';
+  private searchTerms = new Subject<string>();
 
 
   constructor(private busquedaService: BusquedaService, private comidaService: ComidaService, private router: Router) {
     this.alimento = this.comidaService.getAlimentoAEditar();
+    this.searchTerms.pipe(
+      debounceTime(300),     
+      distinctUntilChanged()    
+    ).subscribe((term) => this.realizarBusqueda(term));
   }
 
-
-  buscar() {
+  buscar(term: string): void {
+    this.searchTerms.next(term);
+  }
+  realizarBusqueda(term:string):void {
 
     this.alimentoInformacion = this.busquedaService.buscar(this.nombre);
 
@@ -49,7 +55,7 @@ export class BuscarIngredienteComponent {
   }
 
   reset() {
-    
+    this.nombre = '';
 
   }
   cancelar() {

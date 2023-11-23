@@ -25,7 +25,8 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let alimento of comida.listadoAlimentos">
-                        <td><input type="text" [(ngModel)]="alimento.cantidadAlimento" name="alimento.cantidadAlimento">
+                        <td><input type="number" [(ngModel)]="alimento.cantidadAlimento" [name]="alimento.cantidadAlimento.toString()">
+
                         </td>
                         <td>{{ alimento.informacion.codigoAlimento }}</td>
                         <td>{{ alimento.informacion.nombre }}</td>

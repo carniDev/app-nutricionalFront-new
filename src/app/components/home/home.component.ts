@@ -8,6 +8,7 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-
+constructor(){
+}
 
 }

@@ -1,50 +1,42 @@
 <app-menu></app-menu>
 <div class="container mt-5">
-  <div class="text-center mb-4">
-    <h1>Buscador de alimentos</h1>
-  </div>
-  <div class="row mb-4">
-    <div class="col-md-6 offset-md-3">
-      <input class="form-control" [(ngModel)]="nombre" type="text" name="nombre" id="nombre" placeholder="Introduce el nombre" />
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-6 offset-md-3">
-      <button class="btn btn-primary mt-2" (click)="buscar()">Buscar</button>
-      <button class="btn btn-secondary mt-2" (click)="reset()">Reset</button>
-    </div>
-  </div>
-  <div class="row mt-4">
-    <div class="col-md-12">
-      <table class="table table-bordered table-hover">
-        <thead class="thead-light">
-          <tr>
-            <th>Código</th>
-            <th>Nombre</th>
-            <th>Kcal</th>
-            <th>Hidratos de Carbono</th>
-            <th>Proteína</th>
-            <th>Grasas</th>
-          </tr>
-        </thead>
-            <tbody *ngIf="alimentoInformacion | async  as informacion">
-                <tr *ngFor="let alimento of informacion "(click)="seleccionarInfo(alimento)">
-                    <td>{{alimento.codigoAlimento}}</td>
-                    <td>{{alimento.nombre}}</td>
-                    <td>{{alimento.kcal}}</td>
-                    <td>{{alimento.hidratosCarbono}}</td>
-                    <td>{{alimento.proteinas}}</td>
-                    <td>{{alimento.grasas}}</td>
-                </tr>
+
+  <h1>Buscador de alimentos</h1>
 
 
-            </tbody>
-        </table>
-      </div>
-    </div>
-    <div class="row mt-4">
-      <div class="col-md-12">
-        <button class="btn btn-danger" (click)="cancelar()">Cancelar</button>
-      </div>
-    </div>
+  <div class="col-md-10">
+    <input class="form-control" [(ngModel)]="nombre" (input)="buscar(nombre)" type="text" name="nombre" id="nombre"
+      placeholder="Introduce el nombre" aria-label="Nombre del alimento" />
   </div>
+
+  <div class="col-md-8" *ngIf="nombre && nombre.trim().length">
+    <table class="table table-bordered table-hover align-middle">
+      <thead class="thead-light">
+        <tr>
+          <th>Código</th>
+          <th>Nombre</th>
+          <th>Kcal</th>
+          <th>Hidratos de Carbono</th>
+          <th>Proteína</th>
+          <th>Grasas</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="alimentoInformacion | async as informacion">
+        <tr *ngFor="let alimento of informacion" (click)="seleccionarInfo(alimento)">
+          <td>{{alimento.codigoAlimento}}</td>
+          <td>{{alimento.nombre}}</td>
+          <td>{{alimento.kcal}}</td>
+          <td>{{alimento.hidratosCarbono}}</td>
+          <td>{{alimento.proteinas}}</td>
+          <td>{{alimento.grasas}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <div class="justify-content-center" >
+    <button class="btn btn-danger" (click)="cancelar()">Cancelar</button>
+  </div>
+
+</div>

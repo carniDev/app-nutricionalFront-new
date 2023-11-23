@@ -14,7 +14,6 @@
             </select>
         </div>
 
-
         <div class="table-responsive">
             <table class="table table-bordered table-hover align-middle">
                 <thead>
@@ -26,16 +25,20 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let alimento of comida.listadoAlimentos">
-                        <td><input type="text" [(ngModel)]="alimento.cantidadAlimento" name="alimento.cantidadAlimento">
+                        <td>
+                            <input type="number" [(ngModel)]="alimento.cantidadAlimento" [name]="alimento.cantidadAlimento.toString()">
                         </td>
-                        <ng-container *ngIf="alimento.informacion!=null"(click)="editarAlimento(alimento)">
-                            <td>{{alimento.informacion.codigoAlimento}}</td>
-                            <td>{{alimento.informacion.nombre}}</td>
-                        </ng-container>
+                        <td *ngIf="alimento.informacion" (click)="editarAlimento(alimento)">
+                            {{alimento.informacion.codigoAlimento}}
+                        </td>
+                        <td *ngIf="alimento.informacion" (click)="editarAlimento(alimento)">
+                            {{alimento.informacion.nombre}}
+                        </td>
                     </tr>
                 </tbody>
             </table>
         </div>
+
 
         <div class="row justify-content-center">
             <div class="col-md-auto">
