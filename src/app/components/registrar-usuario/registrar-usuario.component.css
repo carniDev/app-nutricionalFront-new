@@ -1,3 +1,31 @@
 .container {
     max-width: 600px;
 }
+
+
+h1{
+    font-size: 80px;
+    margin-top: 20vh;
+}
+
+input{
+    width: 100%;
+    height: 1vh;
+    font-size: 20px;
+    padding: 2vh;
+    margin-top: 2vh;
+    text-align: center;
+}
+.botones{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2vh;
+}
+
+.btn{
+    margin-left: 1vh;
+    margin-right: 2vh;
+    width: 15vh;
+    height: 3vh;
+}
