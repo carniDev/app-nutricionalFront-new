@@ -28,3 +28,7 @@ h2 {
 div {
     margin-top: 10px;
 }
+
+td{
+  cursor: pointer;
+}

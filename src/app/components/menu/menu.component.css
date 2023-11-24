@@ -5,3 +5,7 @@
     align-content: center;
     
 }
+
+li{
+    cursor: pointer;
+}
