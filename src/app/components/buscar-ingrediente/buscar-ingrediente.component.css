@@ -1,11 +1,30 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 50vh; 
-    margin-top: -50px; 
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  margin-top: -50px;
+}
 
-  .btn{
-    margin-top: 20px;}
+.buscador {
+  margin-bottom: 2vh;
+}
+
+.form-control {
+  text-align: center;
+}
+
+tr {
+  text-align: center;
+}
+
+td {
+  text-align: center;
+  cursor: pointer;
+}
+
+
+.btn {
+  margin-top: 20px;
+}
