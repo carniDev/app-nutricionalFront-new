@@ -9,6 +9,6 @@ export class AppComponent {
   title = 'app-nutricional';
 
   constructor(){
-    
+    localStorage.removeItem('auth_service');
   }
 }
