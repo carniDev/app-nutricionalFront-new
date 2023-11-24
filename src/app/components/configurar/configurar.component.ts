@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Usuario } from 'src/app/models/usuario';
 import { BusquedaService } from 'src/app/services/busqueda.service';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-configurar',
@@ -11,14 +12,19 @@ import { BusquedaService } from 'src/app/services/busqueda.service';
   styleUrls: ['./configurar.component.css']
 })
 export class ConfigurarComponent {
-usuario!:Observable<Usuario>;
+usuario!:Usuario;
 
-  constructor(private busqueda: BusquedaService,private router:Router) {
-    this.usuario = this.busqueda.buscarUsuario(localStorage.getItem('email') ?? "");
+
+  constructor(private usuarioService: UsuarioService,private router:Router) {
+   this.usuarioService.buscarUsuario().subscribe((resp)=>{
+     this.usuario=resp;
+   });
   }
 
   editar(){
-
+    this.usuarioService.actualizarUsuario(this.usuario).subscribe((resp)=>{
+      this.router.navigate(['dashboard']);
+    });
   }
 
   cancelar(){

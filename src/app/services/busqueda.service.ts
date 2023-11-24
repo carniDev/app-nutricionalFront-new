@@ -15,7 +15,7 @@ export class BusquedaService {
     return this.http.get<InformacionAlimento[]>(`http://localhost:8080/app-nutricional/informacion-nutricional/listar-nombre?nombre=${nombre}`);
   }
 
-  buscarUsuario(email: string):Observable<Usuario> {
-    return this.http.get<Usuario>(`http://localhost:8080/app-nutricional/usuario/informacion?email=${email}`);
+  buscarUsuario():Observable<Usuario> {
+    return this.http.get<Usuario>(`http://localhost:8080/app-nutricional/usuario/informacion`);
   }
 }

@@ -1,20 +1,20 @@
-<div class="container my-5" *ngIf="usuario| async as informacionUsuario">
+<div class="container my-5" *ngIf="usuario">
     <h1 class="mb-4 text-center">Editar Informacion</h1>
-    <form >
+    <form (ngSubmit)="editar()">
         <div class="form-group mb-3">
-            <input [(ngModel)]="informacionUsuario.nombre" type="text" id="nombre" name="nombre" class="form-control"
+            <input [(ngModel)]="usuario.nombre" type="text" id="nombre" name="nombre" class="form-control"
                 placeholder="Nombre">
         </div>
         <div class="form-group mb-3">
-            <input [(ngModel)]="informacionUsuario.email" type="email" id="email" name="email" class="form-control"
+            <input [(ngModel)]="usuario.email" type="email" id="email" name="email" class="form-control"
                 placeholder="Correo electrónico">
         </div>
         <div class="form-group mb-3">
-            <input [(ngModel)]="informacionUsuario.fechaNacimiento" type="text" id="fechaNacimiento" name="fechaNacimiento"
+            <input [(ngModel)]="usuario.fechaNacimiento" type="text" id="fechaNacimiento" name="fechaNacimiento"
                 class="form-control" placeholder="Fecha de nacimiento">
         </div>
         <div class="form-group mb-4">
-            <input [(ngModel)]="informacionUsuario.password" type="password" id="password" name="password" class="form-control"
+            <input [(ngModel)]="usuario.password" type="password" id="password" name="password" class="form-control"
                 placeholder="Password">
         </div>
         <div class="d-flex justify-content-center">
