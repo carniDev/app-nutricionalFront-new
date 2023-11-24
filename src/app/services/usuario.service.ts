@@ -14,7 +14,6 @@ export class UsuarioService {
   }
 
 actualizarUsuario(usuario:Usuario):Observable<any>{
-  console.log(usuario)
   return this.http.put(`http://localhost:8080/app-nutricional/usuario/editar`, usuario, { responseType: 'text' as 'json' });
 
 }
