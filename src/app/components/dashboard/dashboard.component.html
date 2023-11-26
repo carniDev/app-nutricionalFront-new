@@ -4,36 +4,43 @@
         <header>
             <h1 class="my-4">Nombre de tu App</h1>
         </header>
-        <div *ngIf="informacion.comidas.length>0">
-        <app-charts [proteinData]="informacion.proteinas" [carbData]="informacion.hidratosCarbono"
-            [fatData]="informacion.grasas"></app-charts>
+        <div class="informacion" *ngIf="informacion.comidas.length>0">
+            <app-charts [proteinData]="informacion.proteinas" [carbData]="informacion.hidratosCarbono"
+                [fatData]="informacion.grasas"></app-charts>
+            <div>
+
+                <table class="table table-hover listaComidas">
+                    <thead>
+                        <tr>
+                            <th>Tipo comida</th>
+                            <th>Kcal</th>
+                            <th>Hidratos</th>
+                            <th>Proteinas</th>
+                            <th>Grasas</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let comida of informacion.comidas" (click)="editar(comida)">
+                            <td>{{comida.tipoComida}}</td>
+                            <td>{{comida.kcal}}</td>
+                            <td>{{comida.hidratosCarbono}}</td>
+                            <td>{{comida.proteinas}}</td>
+                            <td>{{comida.grasas}}</td>
+                        </tr>
+                    </tbody>
+                </table>
 
 
-       
-            <table class="table table-bordered listaComidas">
-                <thead>
-                    <tr>
-                        <th>Tipo comida</th>
-                        <th>Kcal</th>
-                        <th>Hidratos</th>
-                        <th>Proteinas</th>
-                        <th>Grasas</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let comida of informacion.comidas" (click)="editar(comida)">
-                        <td>{{comida.tipoComida}}</td>
-                        <td>{{comida.kcal}}</td>
-                        <td>{{comida.hidratosCarbono}}</td>
-                        <td>{{comida.proteinas}}</td>
-                        <td>{{comida.grasas}}</td>
-                    </tr>
-                </tbody>
-            </table>
+                <div class="d-flex justify-content-center">
+                    <button class="btn btn-primary" *ngIf="informacion.comidas.length<5" (click)="addComida()">Añadir
+                        comida</button>
+                </div>
+            </div>
+            
         </div>
-
-        <div class="d-flex justify-content-center">
-            <button class="btn btn-primary" *ngIf="informacion.comidas.length<5" (click)="addComida()">Añadir
+        <div class="btn-no-food d-flex justify-content-center" *ngIf="informacion.comidas.length==0">
+            <h2 class="my-4">No hay comidas añadidas</h2>
+            <button class="btn btn-primary"  (click)="addComida()">Añadir
                 comida</button>
         </div>
     </div>

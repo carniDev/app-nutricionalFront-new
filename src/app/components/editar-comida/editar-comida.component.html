@@ -15,7 +15,7 @@
         </div>
 
         <div class="table-responsive">
-            <table class="table table-bordered table-hover align-middle">
+            <table class="table table-hover align-middle">
                 <thead>
                     <tr>
                         <th>cantidad</th>
@@ -28,10 +28,10 @@
                         <td>
                             <input type="number" [(ngModel)]="alimento.cantidadAlimento" [name]="alimento.cantidadAlimento.toString()">
                         </td>
-                        <td *ngIf="alimento.informacion" (click)="editarAlimento(alimento)">
+                        <td class="seleccionable" *ngIf="alimento.informacion" (click)="editarAlimento(alimento)">
                             {{alimento.informacion.codigoAlimento}}
                         </td>
-                        <td *ngIf="alimento.informacion" (click)="editarAlimento(alimento)">
+                        <td  class="seleccionable" *ngIf="alimento.informacion" (click)="editarAlimento(alimento)">
                             {{alimento.informacion.nombre}}
                         </td>
                     </tr>

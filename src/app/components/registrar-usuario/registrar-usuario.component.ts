@@ -27,8 +27,10 @@ export class RegistroComponent {
     }
     
     )
-    
-  
+  }
+
+  cancel(){
+    this.router.navigate(['']);
   }
 
 }
