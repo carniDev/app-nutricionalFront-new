@@ -7,7 +7,7 @@
 }
 
 header h1 {
-  margin-bottom: 1rem;
+  margin-bottom: 1vh;
   text-align: center;
 }
 
@@ -16,9 +16,12 @@ header h1 {
 }
 
 .table {
-  display: table;
+  display: block;
   width: 100%;
+  overflow-x: auto;
   text-align: center;
+  align-content: center;
+
 }
 
 table td {
@@ -32,5 +35,9 @@ table td {
   cursor: pointer;
   background-color: #007bff;
   height: fit-content;
-  
+
+}
+.btn-no-food{
+  display: flex;
+  flex-direction: column;
 }
