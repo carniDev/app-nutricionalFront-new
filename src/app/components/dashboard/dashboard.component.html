@@ -4,7 +4,7 @@
         <header>
             <h1 class="my-4">Nombre de tu App</h1>
         </header>
-        <div *ngIf="informacion.comidas.length>0">
+        <div class="informacion" *ngIf="informacion.comidas.length>0">
         <app-charts [proteinData]="informacion.proteinas" [carbData]="informacion.hidratosCarbono"
             [fatData]="informacion.grasas"></app-charts>
 
