@@ -24,7 +24,7 @@ export class AuthService {
   login(email: string, password: string): Observable<Auth> {
     return this.http.post<Auth>(`http://localhost:8080/app-nutricional/auth/login`, { email, password }).pipe(
       tap(response => {
-        localStorage.clear();
+        localStorage.removeItem('auth_service');
         localStorage.setItem('auth_service', response.token);
       })
     );
@@ -33,6 +33,10 @@ export class AuthService {
 
   register(user: Usuario):Observable<Auth> {
     return this.http.post<Auth>('http://localhost:8080/app-nutricional/auth/register', user);
+  }
+
+  comprobarToken(token:string):Observable<Boolean>{
+    return this.http.get<Boolean>(`http://localhost:8080/app-nutricional/auth/comprobarToken/${token}`);
   }
 
 
