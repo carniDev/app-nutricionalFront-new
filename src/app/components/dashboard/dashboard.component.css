@@ -6,9 +6,10 @@
   width: 100%;
 }
 
-header h1 {
-  margin-bottom: 1vh;
-  text-align: center;
+h1{
+  font-size: 80px;
+  margin-top: 10vh;
+  color: #BDD142;
 }
 
 .informacion {
