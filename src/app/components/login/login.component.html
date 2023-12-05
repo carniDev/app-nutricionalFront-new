@@ -1,5 +1,6 @@
 <div class="container my-5">
-    <h1 class="mb-4 text-center">Iniciar Sesion</h1>
+    <h1 class="mb-4 text-center">FitLife</h1>
+    <h2 class="mb-4 text-center">Iniciar Sesion</h2>
     <form (ngSubmit)="login()">
         <div class="form-group">
         <input type="email" [(ngModel)]="usuario.email" name="email" class="form-control" id="email" aria-describedby="emailHelp"
@@ -9,8 +10,8 @@
             <input type="password" [(ngModel)]="usuario.password" name="password" class="form-control" id="password" placeholder="Introduce el password">
         </div>
         <div class="botones d-flex justify-content-center">
-            <button type="submit" class="btn btn-primary">Login</button>
-            <button type="button" class="btn btn-danger" (click)="cancel()">Cancel</button>
+            <button type="submit" class="btn-login">Login</button>
+            <button type="button" class="btn-cancel" (click)="cancel()">Cancel</button>
         </div>
     </form>
 </div>
