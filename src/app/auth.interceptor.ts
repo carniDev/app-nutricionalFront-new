@@ -22,9 +22,9 @@ export class AuthInterceptor implements HttpInterceptor {
         });
         return next.handle(clonedReq).pipe(
           catchError((error: HttpErrorResponse) => {
-              if (error.status === 403) {
+              if (error.status === 403 || error.status === 401) {
                   localStorage.removeItem('auth_service');
-                  this.router.navigate(['']);
+                  this.router.navigate(['login']);
               }
               return throwError(() => error);
           })
