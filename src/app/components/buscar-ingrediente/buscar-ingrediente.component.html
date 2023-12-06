@@ -1,8 +1,7 @@
 <app-menu></app-menu>
-<div class="container mt-5">
-
-  <h1>Buscador de alimentos</h1>
-
+<div class="container">
+  <h1 class="my-4 text-center">FitLife</h1>
+  <h2 class="my-4 text-center">Buscador de alimentos</h2>
 
   <div class="buscador col-md-4">
     <input class="form-control" [(ngModel)]="nombre" (input)="buscar(nombre)" type="text" name="nombre" id="nombre"
@@ -35,8 +34,8 @@
   </div>
 
 
-  <div class="justify-content-center" >
-    <button class="btn btn-danger" (click)="cancelar()">Cancelar</button>
+  <div class="justify-content-center">
+    <button class="btn-cancelar" (click)="cancelar()">Cancelar</button>
   </div>
 
 </div>
