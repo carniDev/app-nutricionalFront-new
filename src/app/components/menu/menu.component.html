@@ -1,12 +1,12 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg">
 
-    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" [href]="['dashboard']" (click)="home()">Home</a>
+                <a class="nav-link" routerLink="/dashboard" (click)="home()">Home</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" [href]="['configurar']">Configurar</a>
+                <a class="nav-link" routerLink="/configurar">Configurar</a>
             </li>          
             <li class="nav-item active">
                 <a class="nav-link" (click)="logout()">Logout</a>
