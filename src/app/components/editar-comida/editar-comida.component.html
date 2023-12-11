@@ -1,10 +1,11 @@
 <app-menu></app-menu>
 <div class="container mt-5">
-    <h2 class="text-center">Comida para editar</h2>
+    <h1 class="my-3 text-center">FitLife</h1>
+    <h2 class="my-5 text-center">Comida para editar</h2>
     <form (ngSubmit)="editarComida()">
         <div class="form-group">
             <label for="tipoComida">Tipo de Comida</label>
-            <select class="form-control" [(ngModel)]="comida.tipoComida" id="tipoComida" name="comida.tipoComida">
+            <select disabled class="form-control" [(ngModel)]="comida.tipoComida" id="tipoComida" name="comida.tipoComida">
                 <option value="">Seleccione una comida</option>
                 <option value="DESAYUNO">Desayuno</option>
                 <option value="ALMUERZO">Almuerzo</option>
@@ -45,13 +46,13 @@
                 <button *ngIf="comida.listadoAlimentos.length>5" type="button" class="btn btn-light">Buscar</button>
             </div>
             <div class="col-md-auto">
-                <button type="submit" class="btn btn-primary">Editar</button>
+                <button type="submit" class="btn-editar">Editar</button>
             </div>
             <div class="col-md-auto">
-                <button type="button" class="btn btn-danger" (click)="cancelar()">Cancelar</button>
+                <button type="button" class="btn-cancelar" (click)="cancelar()">Cancelar</button>
             </div>
             <div class="col-md-auto">
-                <button type="button" class="btn btn-danger" (click)="eliminar()">Eliminar</button>
+                <button type="button" class="btn-eliminar" (click)="eliminar()">Eliminar</button>
             </div>
         </div>
     </form>
