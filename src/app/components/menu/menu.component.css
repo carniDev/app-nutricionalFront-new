@@ -1,5 +1,6 @@
 .navbar{
     display: flex;
+    flex-direction: row;
     padding: 0.5vh;
     align-content: flex-start;
     background-color: #7E407F;
@@ -9,7 +10,7 @@ ul{
     display: flex;
     flex-direction: column;
     list-style: none;
-    width: 80%;
+    width: 100%;
     margin: 0;
     margin-left: 5vh;
     padding: 0;
@@ -27,7 +28,7 @@ li:hover{
 
 a{
     color: white;
-    font-size: 25px;
+    font-size: 20px;
 }
 
 a:hover{
