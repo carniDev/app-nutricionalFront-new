@@ -1,50 +1,59 @@
 <app-menu></app-menu>
 <div class="container mt-5">
-    <h2 class="text-center">Comida para registrar</h2>
+    <h1 class="my-5 text-center">FitLife</h1>
+    <h2 class="my-3 text-center">Comida para registrar</h2>
+
     <form (ngSubmit)="addComida()">
-        <div class="form-group">
-            <label for="tipoComida">Tipo de Comida</label>
-            <select class="form-control" id="tipoComida" [(ngModel)]="comida.tipoComida" name="comida.tipoComida"
-                (change)="actualizarTipoComida()">
-                <option value="">Seleccione una comida</option>
-                <ng-container  *ngFor="let tipo of tipoComida">
-                    <option value="{{tipo}}">{{tipo}}</option>
-                </ng-container>
-            </select>
-        </div>
 
-
-        <div class="table-responsive" *ngIf="comida && comida.listadoAlimentos && comida.listadoAlimentos.length > 0">
-            <table class="table table-bordered table-hover align-middle">
-                <thead>
-                    <tr>
-                        <th>cantidad</th>
-                        <th>codigo alimento</th>
-                        <th>nombre alimento</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let alimento of comida.listadoAlimentos">
-                        <td><input type="number" [(ngModel)]="alimento.cantidadAlimento" [name]="alimento.cantidadAlimento.toString()">
-
-                        </td>
-                        <td>{{ alimento.informacion.codigoAlimento }}</td>
-                        <td>{{ alimento.informacion.nombre }}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div class="botones row justify-content-center">
-            <div class="col-md-auto">
-                <button type="button" (click)="buscarAlimento()" class="btn btn-light">Añadir alimento</button>
+      
+            <div class="form-group mx-auto" style="max-width: 500px;">
+                <label for="tipoComida">Tipo de Comida</label>
+                <select class="form-control" id="tipoComida" [(ngModel)]="comida.tipoComida" name="comida.tipoComida"
+                    (change)="actualizarTipoComida()">
+                    <option value="">Seleccione una comida</option>
+                    <ng-container *ngFor="let tipo of tipoComida">
+                        <option value="{{tipo}}">{{tipo}}</option>
+                    </ng-container>
+                </select>
             </div>
-            <div *ngIf="comida && comida.listadoAlimentos && comida.listadoAlimentos.length > 0" class="col-md-auto">
-                <button type="submit" class="btn btn-primary">Añadir</button>
+
+
+            <div class="table-responsive"
+                *ngIf="comida && comida.listadoAlimentos && comida.listadoAlimentos.length > 0">
+                <table class="table table-bordered table-hover align-middle">
+                    <thead>
+                        <tr>
+                            <th>cantidad</th>
+                            <th>codigo alimento</th>
+                            <th>nombre alimento</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let alimento of comida.listadoAlimentos">
+                            <td><input type="number" [(ngModel)]="alimento.cantidadAlimento"
+                                    [name]="alimento.cantidadAlimento.toString()">
+
+                            </td>
+                            <td>{{ alimento.informacion.codigoAlimento }}</td>
+                            <td>{{ alimento.informacion.nombre }}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <div class="col-md-auto">
-                <button type="button" class="btn btn-danger" (click)="cancelar()">Cancelar</button>
+
+            <div class="botones row justify-content-center">
+
+                <button *ngIf="comida.tipoComida!=''" type="button" (click)="buscarAlimento()"
+                    class="btn-add-food">Añadir
+                    alimento</button>
+
+
+                <button *ngIf="comida && comida.listadoAlimentos && comida.listadoAlimentos.length > 0" type="submit"
+                    class="btn-add">Añadir</button>
+
+
+                <button type="button" class="btn-cancelar" (click)="cancelar()">Cancelar</button>
+
             </div>
-        </div>
     </form>
 </div>

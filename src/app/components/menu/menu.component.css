@@ -1,11 +1,36 @@
 .navbar{
     display: flex;
-    padding: 10px;
-    align-items: center;
-    align-content: center;
+    flex-direction: row;
+    padding: 0.5vh;
+    align-content: flex-start;
+    background-color: #7E407F;
+    
+}
+ul{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    width: 100%;
+    margin: 0;
+    margin-left: 5vh;
+    padding: 0;
+}
+li{
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+}
+
+li:hover{
+    background-color: white;
     
 }
 
-li{
-    cursor: pointer;
+a{
+    color: white;
+    font-size: 20px;
+}
+
+a:hover{
+    color: #7E407F;
 }

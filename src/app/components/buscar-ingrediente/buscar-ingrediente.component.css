@@ -3,16 +3,30 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 50vh;
-  margin-top: -50px;
+  height: 60vh;
+
+}
+
+h1 {
+  font-size: 80px;
+  margin-top: 1vh;
+  color: #BDD142;
+}
+
+h2 {
+  font-size: 40px;
+  color: #7E407F;
 }
 
 .buscador {
+  width: 50%;
   margin-bottom: 2vh;
 }
 
 .form-control {
   text-align: center;
+  font-size: 24px;
+  font-weight: bold;
 }
 
 tr {
@@ -25,6 +39,17 @@ td {
 }
 
 
-.btn {
-  margin-top: 20px;
+.btn-cancelar {
+  margin-top: 4vh;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 23px;
+  font-weight: bold;
+  cursor: pointer;
+  outline: none;
+  width: 12vh;
+  height: 4vh;
+  background-color: #7E407F;
+  margin-top: 2vh;
 }

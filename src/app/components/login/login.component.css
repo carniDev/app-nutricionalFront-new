@@ -1,36 +1,50 @@
-.container {   
+.container {
     max-width: 800px;
 }
 
-h1{
+h1 {
     font-size: 80px;
     margin-top: 20vh;
-    
-    
+    color: #BDD142;
+
 }
-label{
-    font-size: 20px;
-    margin-top: 10px;
+h2 {
+    font-size: 50px;
+    margin-bottom: 8vh;
 }
-input{
+
+input {
     width: 100%;
     height: 1vh;
-    font-size: 20px;
+    font-size: 28px;
     padding: 2vh;
-    margin-top: 2vh;
+    margin-top: 4vh;
     text-align: center;
 }
 
-.botones{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 5vh;
+
+
+.btn-login,
+.btn-cancel {
+    margin-top: 4vh;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+    width: 12vh;
+    height: 5vh;    
+
 }
 
-.btn{
-    margin-left: 1vh;
+.btn-login {
+    background-color: #7E407F;
     margin-right: 2vh;
-    width: 20vh;
-    
+}
+
+.btn-cancel {
+    background-color: #BDD142;
+    margin-left: 2vh;
 }

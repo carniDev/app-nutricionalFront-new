@@ -1,30 +1,49 @@
 .container {
-    max-width: 600px;
+    max-width: 800px;
 }
 
 
 h1{
     font-size: 80px;
     margin-top: 20vh;
+    color: #BDD142;
+}
+
+h2{
+    font-size: 45px;
 }
 
 input{
     width: 100%;
     height: 1vh;
-    font-size: 20px;
+    font-size: 25px;
+    font-weight: bold;
     padding: 2vh;
     margin-top: 2vh;
     text-align: center;
 }
-.botones{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 2vh;
+.btn-registrar,
+.btn-cancel {
+    
+    margin-top: 4vh;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+    width: 12vh;
+    height: 6vh;    
+
 }
 
-.btn{
-    margin-left: 1vh;
+.btn-registrar {
+    background-color: #7E407F;
     margin-right: 2vh;
-    width: 15vh;
+}
+
+.btn-cancel {
+    background-color: #BDD142;
+    margin-left: 2vh;
 }

@@ -2,21 +2,41 @@
 h1{
     font-size: 80px;
     margin-top: -20vh;
+    margin-bottom: 8vh;
     
 }
 
 h2{
-    font-size: 50px;
-    margin-top: 5vh;
+    font-size: 80px;
+    margin-bottom: 8vh;
+    color: #BDD142;
+    
 }
 p{
     font-size: 30px;
-    margin-top: 5vh;
+    margin-top: 2vh;
+    font-weight: bold;
+
 }
 
-a{
-    width: 120px;
-    height: 50px;
-    font-size: 20px;
-    padding: 10px;
+button{
+    margin-top: 3vh;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+    width: 12vh;
+    height: 5vh;    
 }
+
+  .btn-login {
+    background-color: #BDD142;
+    margin-right: 2vh;
+  }
+
+  .btn-registrar {
+    background-color: #7E407F;
+    margin-left: 4vh;
+  }

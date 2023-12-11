@@ -2,7 +2,7 @@
 <div class="container">
     <div *ngIf="informacionNutricional | async as informacion">
         <header>
-            <h1 class="my-4">Nombre de tu App</h1>
+            <h1 class="my-5 text-center">FitLife</h1>
         </header>
         <div class="informacion" *ngIf="informacion.comidas.length>0">
             <app-charts [proteinData]="informacion.proteinas" [carbData]="informacion.hidratosCarbono"
@@ -39,8 +39,8 @@
             
         </div>
         <div class="btn-no-food d-flex justify-content-center" *ngIf="informacion.comidas.length==0">
-            <h2 class="my-4">No hay comidas añadidas</h2>
-            <button class="btn btn-primary"  (click)="addComida()">Añadir
+            <h2 class="mb-5 text-center">No hay comidas añadidas</h2>
+            <button class="btn"  (click)="addComida()">Añadir
                 comida</button>
         </div>
     </div>

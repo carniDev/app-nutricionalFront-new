@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-
 import { Router } from '@angular/router';
 import { Usuario } from 'src/app/models/usuario';
 import { AuthService } from 'src/app/services/auth.service';
@@ -19,11 +18,7 @@ export class RegistroComponent {
   registrar(){
     this.authService.register(this.usuario).subscribe((respuesta)=>
     {
-      console.log(respuesta);
       this.router.navigate(["/login"]);
-    },
-    (error)=>{
-      console.error(error);
     }
     
     )

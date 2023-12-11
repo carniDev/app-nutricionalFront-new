@@ -1,5 +1,8 @@
+
+<app-menu></app-menu>
 <div class="container my-5" *ngIf="usuario">
-    <h1 class="mb-4 text-center">Editar Informacion</h1>
+    <h1 class="mb-5 text-center">FitLife</h1>
+    <h2 class="mb-5 text-center">Editar Informacion</h2>
     <form (ngSubmit)="editar()">
         <div class="form-group mb-3">
             <input [(ngModel)]="usuario.nombre" type="text" id="nombre" name="nombre" class="form-control"
@@ -18,8 +21,8 @@
                 placeholder="Password">
         </div>
         <div class="d-flex justify-content-center">
-            <button type="submit" class="btn btn-primary">Editar</button>
-            <a class="btn btn-secondary" (click)="cancelar()">Cancelar</a>
+            <button type="submit" class="btn-editar">Editar</button>
+            <button class="btn-cancelar" (click)="cancelar()">Cancelar</button>
         </div>
     </form>
 </div>
