@@ -24,17 +24,17 @@ input{
 }
 .btn-registrar,
 .btn-cancel {
-    padding: 10px 20px;
+    
     margin-top: 4vh;
     border: none;
     border-radius: 5px;
     color: white;
-    font-size: 23px;
+    font-size: 20px;
     font-weight: bold;
     cursor: pointer;
     outline: none;
     width: 12vh;
-    height: 5vh;    
+    height: 6vh;    
 
 }
 
@@ -45,5 +45,5 @@ input{
 
 .btn-cancel {
     background-color: #BDD142;
-    margin-left: 4vh;
+    margin-left: 2vh;
 }
