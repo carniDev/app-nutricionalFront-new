@@ -10,12 +10,18 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LoginComponent {
 
- usuario!:Usuario;
+ usuario:Usuario;
 
 
   constructor(private authService:AuthService,private router:Router){
 
-    this.usuario=this.authService.getUsuario();
+    this.usuario = {
+      id: null,
+      nombre: '',
+      email: '',
+      fechaNacimiento:'',
+      password: ''
+    }
   }
 
   login(){
@@ -24,9 +30,6 @@ export class LoginComponent {
     this.authService.login(credentials.email,credentials.password).subscribe(
       () => {
        this.router.navigate(['dashboard']);
-      },
-      (error) => {
-        console.log("no se ha encontrado nada")
       }
     );
   }

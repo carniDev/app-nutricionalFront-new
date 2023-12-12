@@ -28,16 +28,16 @@ export class HomeComponent {
   }
 
   comprobarToken() {
-    const token = localStorage.getItem('auth_service');
-    if (token != null) {
-      this.authService.comprobarToken(token).subscribe(resp => {
+    
+    
+      this.authService.comprobarToken().subscribe(resp => {
         if (resp) {
           this.router.navigate(['dashboard']);
-        } else {
-          localStorage.removeItem('auth_service');
         }
+      },error =>{
+        localStorage.removeItem('auth_service');
       });
 
     }
   }
-}
+

@@ -35,8 +35,8 @@ export class AuthService {
     return this.http.post<Auth>('http://localhost:8080/app-nutricional/auth/register', user);
   }
 
-  comprobarToken(token:string):Observable<Boolean>{
-    return this.http.get<Boolean>(`http://localhost:8080/app-nutricional/auth/comprobarToken/${token}`);
+  comprobarToken():Observable<Boolean>{
+    return this.http.get<Boolean>(`http://localhost:8080/app-nutricional/auth/comprobarToken/`);
   }
 
 

@@ -9,10 +9,16 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./registrar-usuario.component.css']
 })
 export class RegistroComponent {
-  usuario!:Usuario;
+  usuario:Usuario;
 
   constructor(private authService:AuthService, private router:Router){
-    this.usuario =this.authService.getUsuario();
+    this.usuario = {
+      id: null,
+      nombre: '',
+      email: '',
+      fechaNacimiento:'',
+      password: ''
+    }
   }
 
   registrar(){
