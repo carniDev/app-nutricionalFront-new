@@ -15,13 +15,7 @@ export class LoginComponent {
 
   constructor(private authService:AuthService,private router:Router){
 
-    this.usuario = {
-      id: null,
-      nombre: '',
-      email: '',
-      fechaNacimiento:'',
-      password: ''
-    }
+    this.usuario=authService.getUsuario();
   }
 
   login(){
